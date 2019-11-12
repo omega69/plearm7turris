@@ -9,10 +9,10 @@ addons:
 before_install:
 - npm install
 - node plexserverurl.js > plexserver.url
-- cat plexserver.url | xargs wget
+- cat plexserver.url | wget
 install:
 - tar -xzf skeleton.tgz
-- cat https://downloads.plex.tv/plex-media-server-new/1.18.2.2015-5a99a9a46/synology/PlexMediaServer-1.18.2.2015-5a99a9a46-armv7hf.spk | xargs basename | xargs tar -xvf
+- cat https://downloads.plex.tv/plex-media-server-new/1.18.2.2015-5a99a9a46/synology/PlexMediaServer-1.18.2.2015-5a99a9a46-armv7hf.spk | basename | tar -xvf
 - tar -xvf package.tgz -C skeleton/usr/lib/plexmediaserver
 - rm -r skeleton/usr/lib/plexmediaserver/dsm_config
 - find skeleton/usr/lib/plexmediaserver -iname "*.so" -exec chmod 644 {} \;
